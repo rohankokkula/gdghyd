@@ -24,10 +24,10 @@ export default function Home() {
       console.log('Fetching new data...');
       fetch('https://eu-cdn.contentstack.com/v3/content_types/demo/entries/bltf17002e4e1b136c4?locale=en-us&include_fallback=true&include_branch=false', {
         headers: {
-          'api_key': 'blt0d2b243e97429908',
-          'access_token': 'cs63841f49ed37cd983d299b04',
+          'api_key': process.env.NEXT_PUBLIC_CONTENTSTACK_API_KEY || '',
+          'access_token': process.env.NEXT_PUBLIC_CONTENTSTACK_ACCESS_TOKEN || '',
           'branch': 'main',
-          'environment': 'dev'
+          'environment': process.env.NEXT_PUBLIC_CONTENTSTACK_ENVIRONMENT || 'dev'
         }
       })
         .then(res => res.json())
